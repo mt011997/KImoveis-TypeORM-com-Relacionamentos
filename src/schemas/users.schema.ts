@@ -1,6 +1,11 @@
 import * as yup from "yup";
 import { SchemaOf } from "yup";
-import { IUser, IUserRequest, IUserUpdate } from "../interfaces/users";
+import {
+  IUser,
+  IUserRequest,
+  IUserUpdate,
+  IUserLogin,
+} from "../interfaces/users";
 
 const userSerializer: SchemaOf<IUserRequest> = yup.object().shape({
   email: yup.string().email().required(),
@@ -25,6 +30,11 @@ const userWithoutPassowrd: SchemaOf<IUser> = yup.object().shape({
   isActive: yup.boolean().notRequired(),
 });
 
+const userLogin: SchemaOf<IUserLogin> = yup.object().shape({
+  email: yup.string().required().email(),
+  password: yup.string().required(),
+});
+
 const listUsersReturnedData = yup.array(userWithoutPassowrd);
 
 export {
@@ -32,4 +42,5 @@ export {
   userSerializerUpdate,
   userWithoutPassowrd,
   listUsersReturnedData,
+  userLogin,
 };
