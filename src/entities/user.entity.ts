@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Schedules_user_properties } from "./shedeuls.entity";
+import { Schedules_user_properties } from "./schedules.entity";
 import { hashSync } from "bcryptjs";
 
 @Entity("users")

@@ -12,7 +12,7 @@ import {
 import { Address } from "./adress.entity";
 
 import { Categories } from "./categories.entity";
-import { Schedules_user_properties } from "./shedeuls.entity";
+import { Schedules_user_properties } from "./schedules.entity";
 
 @Entity("properties")
 class Properties {
