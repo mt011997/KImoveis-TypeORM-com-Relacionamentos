@@ -42,11 +42,11 @@ const createScheduleService = async (data: IScheduleRequest, id: string) => {
   }
 
   if (parseInt(wrongHour[0]) <= 8) {
-    throw new AppError("bad hour", 400);
+    throw new AppError("Wrong hour", 400);
   }
 
   if (parseInt(wrongHour[0]) >= 18) {
-    throw new AppError("bad hour", 400);
+    throw new AppError("Wrong hour", 400);
   }
 
   if (dateSchedule == 6 || dateSchedule == 0) {
@@ -61,7 +61,7 @@ const createScheduleService = async (data: IScheduleRequest, id: string) => {
   });
   await scheduleRepository.save(schedel);
 
-  return [201, { message: "agendamento marcado" }];
+  return { message: "Successfully created!" };
 };
 
 export default createScheduleService;

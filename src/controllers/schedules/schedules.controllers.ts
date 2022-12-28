@@ -4,17 +4,15 @@ import createScheduleService from "../../services/schedules/createSchedule.Servi
 import listScheduleService from "../../services/schedules/listSchedule.Service";
 
 const listScheduleController = async (req: Request, res: Response) => {
-  {
-    const schedulesId = await listScheduleService(req.params.id);
-    return res.json(schedulesId);
-  }
+  const schedulesId = await listScheduleService(req.params.id);
+  return res.json(schedulesId);
 };
 
 const createScheduleController = async (req: Request, res: Response) => {
   const scheduleData: IScheduleRequest = req.body;
   const scheduleId = req.params.id;
   const scheduleCreated = await createScheduleService(scheduleData, scheduleId);
-  return res.json(scheduleCreated);
+  return res.status(201).json(scheduleCreated);
 };
 
-export { listScheduleController, createScheduleController };
+export { createScheduleController, listScheduleController };
